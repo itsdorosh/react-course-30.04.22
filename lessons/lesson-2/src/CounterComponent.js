@@ -10,7 +10,7 @@ export class CounterComponent extends Component {
                 <button onClick={() => this.clickHandler('+')}>+</button>
                 <h1>{this.state.count}</h1>
                 <button onClick={() => this.clickHandler('-')}>-</button>
-                <p onClick={this.props.notify("Hello from Counter")}>Notify App.js component...</p>
+                <p onClick={() => this.props.notify("Hello from Counter")}>Notify App.js component...</p>
             </div>
         );
     }

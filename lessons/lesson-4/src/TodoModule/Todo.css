@@ -1,0 +1,20 @@
+.TodoForm {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px black solid;
+    margin-bottom: 5px;
+  }
+  
+  .TodoForm input {
+    width: 100%;
+  }
+  
+  .TodoList {
+    width: 500px;
+    border: 1px black solid;
+  }
+  
+  .TodoList ul {
+    padding: 0;
+  }

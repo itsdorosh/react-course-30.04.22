@@ -2,6 +2,9 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import './App.css';
 import { useLocalStorage } from './hooks';
 
+import { filterContext } from './contexts/filterContext';
+import { UserCard } from './UserCard';
+
 function App() {
   const [list, setList] = useState([{ id: 1, title: 'Demo Item 1', completed: false }, { id: 2, title: 'Demo Item 2', completed: true }]);
   const [titleFilter, setTitleFilter] = useLocalStorage('title', '');
@@ -13,6 +16,10 @@ function App() {
       .then(response => response.json())
       .then(list => setList(list));
   }, []);
+
+  useEffect(() => {
+    state = {titleFilter};
+  });
 
   const filterListByTitlePredicate = useCallback((listItem, titleFilter) => listItem.title.includes(titleFilter), []);
 
@@ -32,6 +39,7 @@ function App() {
   );
 
   return (
+    <filterContext.Provider value={titleFilter}>
     <div className="App">
       <header className="App-header">
         <h1>Lesson 5 - React Hooks</h1>
@@ -48,6 +56,8 @@ function App() {
         </div>
       </header>
     </div>
+    <UserCard />
+    </filterContext.Provider>
   );
 }
 

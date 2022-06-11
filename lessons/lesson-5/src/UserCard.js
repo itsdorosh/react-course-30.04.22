@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { filterContext } from "./contexts/filterContext";
+import { useFilterContext } from "./contexts/filterContext";
 
 export function UserCard () {
-    const filter = useContext(filterContext);
+    const filter = useFilterContext(filterContext);
     return (
         <>
             <h1>{filter}</h1>

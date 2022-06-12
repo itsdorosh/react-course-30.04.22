@@ -5,11 +5,16 @@ import { useLocalStorage } from './hooks';
 import { filterContext } from './contexts/filterContext';
 import { UserCard } from './UserCard';
 
+function getTodo(id) {
+  fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+  .then(response => response.json())
+  .then(todo => console.log(todo));
+}
+
 function App() {
   const [list, setList] = useState([{ id: 1, title: 'Demo Item 1', completed: false }, { id: 2, title: 'Demo Item 2', completed: true }]);
   const [titleFilter, setTitleFilter] = useLocalStorage('title', '');
   const [statusFilter, setStatusFilter] = useLocalStorage('status', 'any');
-
   
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/todos/')

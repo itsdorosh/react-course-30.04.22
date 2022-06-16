@@ -1,0 +1,81 @@
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    /* display: none; Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contacts-book-module {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card {
+    background-color: rgb(219, 219, 219);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.contact-card h2, .contact-card p {
+    margin: 0;
+}
+
+.edit-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #EFEFEF;
+    height: 300px;
+    width: 500px;
+}
+
+.popup-title {
+    display: flex;
+    background-color: #B7B7B7;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-title p {
+    margin: 5px;
+}
+
+.popup-title div {
+    display: flex;
+}
+
+.popup-fields {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.popup-fields input {
+    margin: 10px 0;
+}
+
+.popup-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup-actions button {
+    margin: 0 5px;
+    background-color: #519DD3;
+}

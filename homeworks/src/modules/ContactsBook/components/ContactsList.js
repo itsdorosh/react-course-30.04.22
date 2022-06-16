@@ -1,10 +1,18 @@
 import {ContactCard} from './ContactCard';
 
-export function ContactsList ({contacts, onContactEdit}) {
+// DONE ✅
+export function ContactsList ({contacts, onContactEdit, onContactDelete}) {
 
     return (
-        <div>
-            { contacts.map(contact => <ContactCard key={contact.id} contact={contact} onContactEdit={onContactEdit} />) }
+        <div className="contact-list">
+            {contacts.map((contact) =>
+                <ContactCard
+                    key={contact.id}
+                    contact={contact}
+                    onContactEdit={onContactEdit}
+                    onContactDelete={onContactDelete}
+                />
+            )}
         </div>
     );
 }

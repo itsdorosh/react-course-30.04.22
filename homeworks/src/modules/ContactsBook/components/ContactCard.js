@@ -7,11 +7,15 @@
  */
 export function ContactCard ({contact, onContactEdit, onContactDelete}) {
     return (
-        <div>
-            <h1>{contact.firstName} {contact.lastName}</h1>
-            <p>{contact.phoneNumber}</p>
-            <button onClick={() => onContactEdit(contact.id)}>✍️</button>
-            <button onClick={() => onContactDelete(contact.id)}>🗑</button>
+        <div className="contact-card">
+            <div>
+                <h2>{contact.firstName} {contact.lastName}</h2>
+                <p>{contact.phoneNumber}</p>
+            </div>
+            <div>
+                <button onClick={() => onContactEdit(contact.id)}>✍️</button>
+                <button onClick={() => onContactDelete(contact.id)}>🗑</button>
+            </div>
         </div>
     );
 }

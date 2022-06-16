@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export function EditPopup ({editableContact, onEditComplete}) {
+export function EditPopup ({editableContact, onEditComplete, onEditCancel}) {
     const [firstName, setFirstName] = useState(editableContact.firstName);
     const [lastName, setLastName] = useState(editableContact.lastName);
     const [phoneNumber, setPhoneNumber] = useState(editableContact.phoneNumber);
@@ -29,23 +29,35 @@ export function EditPopup ({editableContact, onEditComplete}) {
                 setPhoneNumber(value);
                 break;
             }
+
+            default: {
+                throw new Error("Unsupported field");
+            }
         }
 
         setSavedIndicator('unsaved');
     }
 
     return (
-        <div>
+        <div className="overlay">
+        <div className="edit-popup">
             <div className="popup-title">
-                <h2>{editableContact.firstName} {editableContact.lastName}</h2>
-                <button>ⓧ</button>
+                <div>
+                    <p>Edit contact: <b>{editableContact.firstName} {editableContact.lastName}</b></p>
+                    <span>{savedIndicator === "saved" ? '' : '⦿'}</span>
+                </div>
+                <button onClick={onEditCancel}>ⓧ</button>
             </div>
-            <div>
+            <div className="popup-fields">
                 <input type="text" value={firstName} onChange={({target}) => onChangeFieldsHander('firstName', target.value)}></input>
                 <input type="text" value={lastName} onChange={({target}) => onChangeFieldsHander('lastName', target.value)}></input>
                 <input type="text" value={phoneNumber} onChange={({target}) => onChangeFieldsHander('phoneNumber', target.value)}></input>
+            </div>
+            <div className="popup-actions">
+                <button onClick={onEditCancel}>Cancel</button>
                 <button onClick={onSave}>Save</button>
             </div>
+        </div>
         </div>
     );
 }

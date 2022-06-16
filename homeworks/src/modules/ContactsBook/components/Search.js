@@ -7,6 +7,7 @@
 export function Search ({placeholder, onSearchChange}) {
     return (
         <input
+            className="search-field"
             type="text"
             onChange={({target}) => onSearchChange(target.value)}
             placeholder={placeholder ? placeholder : "Search"}

@@ -1,12 +1,22 @@
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
 import './App.css';
-import {ContactsBook} from './modules';
-import {Header} from './Header';
+import { Header } from './shared-components';
+import { Homepage, NotFoundPage } from './pages';
+
 
 function App() {
   return (
     <>
       <Header />
-      <ContactsBook />
+      <div className="content">
+        <Router>
+          <Routes>
+            <Route exact path='/' element={<Homepage />} />
+            <Route path='*' element={<NotFoundPage />} />
+          </Routes>
+        </Router>
+      </div>
     </>
   );
 }

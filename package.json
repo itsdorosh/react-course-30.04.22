@@ -1,0 +1,26 @@
+{
+  "name": "react-course-30.04.22",
+  "version": "1.0.0",
+  "description": "## homeworks folder with apps for homeworks examples, templates and solutions",
+  "main": "index.js",
+  "scripts": {
+    "lesson-1": "cd ./lessons/lesson-1 && node node_modules/react-scripts/bin/react-scripts.js start",
+    "lesson-2": "cd ./lessons/lesson-2 && node node_modules/react-scripts/bin/react-scripts.js start",
+    "lesson-3": "cd ./lessons/lesson-3 && node node_modules/react-scripts/bin/react-scripts.js start",
+    "lesson-4": "cd ./lessons/lesson-4 && node node_modules/react-scripts/bin/react-scripts.js start",
+    "lesson-5": "cd ./lessons/lesson-5 && node node_modules/react-scripts/bin/react-scripts.js start",
+    "lesson-7": "cd ./lessons/lesson-7 && node node_modules/react-scripts/bin/react-scripts.js start",
+    "homeworks": "cd ./homeworks && node node_modules/react-scripts/bin/react-scripts.js start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsdorosh/react-course-30.04.22.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsdorosh/react-course-30.04.22/issues"
+  },
+  "homepage": "https://github.com/itsdorosh/react-course-30.04.22#readme"
+}

@@ -1,18 +1,24 @@
-import {ContactCard} from './ContactCard';
+import { ContactCard } from './ContactCard';
 
-// DONE ✅
-export function ContactsList ({contacts, onContactEdit, onContactDelete}) {
+/**
+ * @function ContactsList
+ * @param contacts
+ * @param onContactEdit
+ * @param onContactDelete 
+ * @returns JSX with Contact List and contacts, mapped to ContactCards JSX
+ */
+export function ContactsList({ contacts, onContactEdit, onContactDelete }) {
 
-    return (
-        <div className="contact-list">
-            {contacts.map((contact) =>
-                <ContactCard
-                    key={contact.id}
-                    contact={contact}
-                    onContactEdit={onContactEdit}
-                    onContactDelete={onContactDelete}
-                />
-            )}
-        </div>
-    );
+  return (
+    <div className="contact-list">
+      {contacts.map((contact) =>
+        <ContactCard
+          key={contact.id}
+          contact={contact}
+          onContactEdit={onContactEdit}
+          onContactDelete={onContactDelete}
+        />
+      )}
+    </div>
+  );
 }

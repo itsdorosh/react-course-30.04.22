@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Search, ContactsList, EditPopup } from './components';
-import './ContactsBooks.css';
+import './ContactsBook.css';
 
 const list = [
-    { id: 1, firstName: "Andrii", lastName: "D.", phoneNumber: "+39845234" },
-    { id: 2, firstName: "Crocodile", lastName: "Gena", phoneNumber: "+102947091" },
-    { id: 3, firstName: "Vasya", lastName: "LOL", phoneNumber: "+112359195" },
-    { id: 4, firstName: "Dr.", lastName: "Stuart", phoneNumber: "+12412343234" },
+  { id: 1, firstName: "Andrii", lastName: "D.", phoneNumber: "+39845234" },
+  { id: 2, firstName: "Crocodile", lastName: "Gena", phoneNumber: "+102947091" },
+  { id: 3, firstName: "Vasya", lastName: "LOL", phoneNumber: "+112359195" },
+  { id: 4, firstName: "Dr.", lastName: "Stuart", phoneNumber: "+12412343234" },
 ];
 
 /**
@@ -15,70 +15,70 @@ const list = [
  * @status ✅
  */
 export function ContactsBook() {
-    const [showPopup, setShowPopup] = useState(false);
-    const [contactsList, setContactsList] = useState(list);
-    const [editableContact, setEditableContact] = useState(null);
-    const [searchValue, onSearchChange] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+  const [contactsList, setContactsList] = useState(list);
+  const [editableContact, setEditableContact] = useState(null);
+  const [searchValue, onSearchChange] = useState('');
 
-    let filteredContactsList = !!searchValue
-        ? contactsList.filter((contact) =>
-            contact.firstName.toLowerCase().includes(searchValue.toLowerCase())
-            || contact.lastName.toLowerCase().includes(searchValue.toLowerCase())
-            || contact.phoneNumber.includes(searchValue)
-        )
-        : contactsList;
+  let filteredContactsList = !!searchValue
+    ? contactsList.filter((contact) =>
+      contact.firstName.toLowerCase().includes(searchValue.toLowerCase())
+      || contact.lastName.toLowerCase().includes(searchValue.toLowerCase())
+      || contact.phoneNumber.includes(searchValue)
+    )
+    : contactsList;
 
 
-    // For List
-    const onContactEdit = (id) => {
-        const editableContact = contactsList.find(contact => contact.id === id);
+  // For List
+  const onContactEdit = (id) => {
+    const editableContact = contactsList.find(contact => contact.id === id);
 
-        if (editableContact) {
-            setShowPopup(true);
-            setEditableContact(editableContact);
-        }
+    if (editableContact) {
+      setShowPopup(true);
+      setEditableContact(editableContact);
     }
+  }
 
-    const onContactDelete = (id) => {
-        setContactsList(contactsList.filter(contact => contact.id !== id));
-    }
+  const onContactDelete = (id) => {
+    setContactsList(contactsList.filter(contact => contact.id !== id));
+  }
 
-    // For Popup    
-    const onEditComplete = (changedContact) => {
-        setShowPopup(false);
+  // For Popup    
+  const onEditComplete = (changedContact) => {
+    setShowPopup(false);
 
-        setContactsList(contactsList.map(contact =>
-            contact.id === changedContact.id
-                ? changedContact
-                : contact
-        ));
-    }
+    setContactsList(contactsList.map(contact =>
+      contact.id === changedContact.id
+        ? changedContact
+        : contact
+    ));
+  }
 
-    const onEditCancel = () => {
-        setShowPopup(false);
-    }
+  const onEditCancel = () => {
+    setShowPopup(false);
+  }
 
-    return (
-        <div className="contacts-book-module">
-            <Search
-                placeholder={"Start type name..."}
-                onSearchChange={onSearchChange}
-            />
+  return (
+    <div className="contacts-book-module">
+      <Search
+        placeholder={"Start type name..."}
+        onSearchChange={onSearchChange}
+      />
 
-            <ContactsList
-                contacts={filteredContactsList}
-                onContactEdit={onContactEdit}
-                onContactDelete={onContactDelete}
-            />
+      <ContactsList
+        contacts={filteredContactsList}
+        onContactEdit={onContactEdit}
+        onContactDelete={onContactDelete}
+      />
 
-            {showPopup
-                ? <EditPopup
-                    editableContact={editableContact}
-                    onEditComplete={onEditComplete}
-                    onEditCancel={onEditCancel}
-                />
-                : <></>
-            }
-        </div>
-    );
+      {showPopup
+        ? <EditPopup
+          editableContact={editableContact}
+          onEditComplete={onEditComplete}
+          onEditCancel={onEditCancel}
+        />
+        : <></>
+      }
+    </div>
+  );
 }

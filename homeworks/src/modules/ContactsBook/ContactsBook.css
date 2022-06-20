@@ -43,6 +43,7 @@
     background-color: #EFEFEF;
     height: 300px;
     width: 500px;
+    z-index: 3;
 }
 
 .popup-title {

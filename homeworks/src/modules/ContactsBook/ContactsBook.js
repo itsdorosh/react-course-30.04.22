@@ -1,13 +1,9 @@
-import { useState } from 'react';
-import { Search, ContactsList, EditPopup } from './components';
-import './ContactsBook.css';
+import { useEffect, useState } from 'react';
 
-const list = [
-  { id: 1, firstName: "Andrii", lastName: "D.", phoneNumber: "+39845234" },
-  { id: 2, firstName: "Crocodile", lastName: "Gena", phoneNumber: "+102947091" },
-  { id: 3, firstName: "Vasya", lastName: "LOL", phoneNumber: "+112359195" },
-  { id: 4, firstName: "Dr.", lastName: "Stuart", phoneNumber: "+12412343234" },
-];
+import { Search, ContactsList, EditPopup } from './components';
+import { API_BASE_URL } from './constants';
+
+import './ContactsBook.css';
 
 /**
  * ContactsBook - Smart component with retrieving data, Search, Contact List and Editing contact.
@@ -16,15 +12,21 @@ const list = [
  */
 export function ContactsBook() {
   const [showPopup, setShowPopup] = useState(false);
-  const [contactsList, setContactsList] = useState(list);
+  const [contactsList, setContactsList] = useState([]);
   const [editableContact, setEditableContact] = useState(null);
   const [searchValue, onSearchChange] = useState('');
 
+  useEffect(() => {
+    fetch(`${API_BASE_URL}/users`)
+      .then((res) => res.json())
+      .then(contacts => setContactsList(contacts));
+  }, []);
+
   let filteredContactsList = !!searchValue
     ? contactsList.filter((contact) =>
-      contact.firstName.toLowerCase().includes(searchValue.toLowerCase())
-      || contact.lastName.toLowerCase().includes(searchValue.toLowerCase())
-      || contact.phoneNumber.includes(searchValue)
+      contact.name.toLowerCase().includes(searchValue.toLowerCase())
+      || contact.username.toLowerCase().includes(searchValue.toLowerCase())
+      || contact.phone.includes(searchValue)
     )
     : contactsList;
 

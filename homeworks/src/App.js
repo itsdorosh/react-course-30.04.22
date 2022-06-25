@@ -15,7 +15,7 @@ function App() {
         <Router>
           <Routes>
             <Route exact path='/' element={<Homepage />} />
-            <Route exact path='/contacts-book' element={<ContactsBook />} />
+            <Route path='/contacts-book' element={<ContactsBook />} />
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </Router>

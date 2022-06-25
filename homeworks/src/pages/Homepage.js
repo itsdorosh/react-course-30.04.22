@@ -15,6 +15,12 @@ export function Homepage() {
       И да, всё пишем на функциональных классах с использование хука useState.`,
       link: { text: "Check it out →", href: "/contacts-book" },
     },
+    {
+      id: 2,
+      title: "TodoApp",
+      description: "This is TodoApp",
+      link: {text: "Get explore Brand new Todo App", href: "/todos"}
+    },
   ]);
 
   return (

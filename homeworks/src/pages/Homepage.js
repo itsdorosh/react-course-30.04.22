@@ -1,6 +1,6 @@
-import { useState } from "react";
+import {useState} from "react";
 
-import { AppCard } from "../shared-components";
+import {AppCard} from "../shared-components";
 
 
 export function Homepage() {
@@ -13,7 +13,7 @@ export function Homepage() {
       В каждом контакте должны быть две кнопки: одна запускает процесс изменения контакта, а вторая - его удаление из списка.
       Редактирование должно происходить в попапе, который открывается по центру.
       И да, всё пишем на функциональных классах с использование хука useState.`,
-      link: { text: "Check it out →", href: "/contacts-book" },
+      link: {text: "Check it out →", href: "/contacts-book"},
     },
     {
       id: 2,
@@ -28,7 +28,8 @@ export function Homepage() {
       <h1>Welcome Home, Guys!</h1>
       {/* TODO: nested routing */}
       <div className="cards">
-        {appsToShow.map(({ id, title, description, link }) => <AppCard key={id} title={title} description={description} link={link} />)}
+        {appsToShow.map(({id, title, description, link}) => <AppCard key={id} title={title} description={description}
+                                                                     link={link}/>)}
       </div>
     </>
   );

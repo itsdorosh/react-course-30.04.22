@@ -1,41 +1,42 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 30px;
-  border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    border-bottom: 1px solid #ccc;
 }
+
 .header h1, .header p {
-  margin: 0;
+    margin: 0;
 }
 
 .header p {
-  font-size: small;
+    font-size: small;
 }
 
 .content {
-  padding: 20px;
+    padding: 20px;
 }
 
 .cards {
-  display: flex;
-  padding: 20px;
-  justify-content: space-around;
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
 }
 
 .card {
-  max-width: 500px;
-  background: #ffdead;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  border-radius: 20px;
-  box-sizing: border-box;
+    max-width: 500px;
+    background: #ffdead;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
 }
 
 .card h2 {
-  margin: 0;
+    margin: 0;
 }

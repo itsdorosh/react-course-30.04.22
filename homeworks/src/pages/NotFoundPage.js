@@ -1,6 +1,11 @@
 import {connect} from "react-redux";
+import {useEffect} from "react";
 
-function NotFoundPageForConnect({selectedSchool}) {
+function NotFoundPageForConnect({selectedSchool, dispatch}) {
+  useEffect(() => {
+    dispatch({type: "LOL", payload: "kek"});
+  }, [dispatch]);
+
   return (
     <>
       <h1>404: Page Not Found</h1>

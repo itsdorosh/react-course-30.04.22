@@ -22,9 +22,5 @@
   "bugs": {
     "url": "https://github.com/itsdorosh/react-course-30.04.22/issues"
   },
-  "homepage": "https://github.com/itsdorosh/react-course-30.04.22#readme",
-  "devDependencies": {
-    "@babel/core": "^7.18.6",
-    "@babel/preset-env": "^7.18.6"
-  }
+  "homepage": "https://github.com/itsdorosh/react-course-30.04.22#readme"
 }
